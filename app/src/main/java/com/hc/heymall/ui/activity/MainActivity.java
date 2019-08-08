@@ -10,6 +10,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.hc.baselibrary.ui.activity.BaseActivity;
 import com.hc.baselibrary.ui.activity.BaseViewActivity;
 import com.hc.heymall.R;
+import com.hc.heymall.ui.fragment.bottom.MainBottomFragment;
 
 public class MainActivity extends BaseViewActivity implements View.OnClickListener {
 
@@ -33,8 +34,9 @@ public class MainActivity extends BaseViewActivity implements View.OnClickListen
 
     @Override
     public void initView() {
-        this.setContent(R.layout.activity_main);
-        jump_btn = findViewById(R.id.jump_btn);
+       // this.setContent(R.layout.activity_main);
+        //jump_btn = findViewById(R.id.jump_btn);
+        this.setContent(new MainBottomFragment());
     }
 
     @Override
@@ -44,16 +46,16 @@ public class MainActivity extends BaseViewActivity implements View.OnClickListen
 
     @Override
     public void initListener() {
-        jump_btn.setOnClickListener(this);
+        //jump_btn.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.jump_btn:
-                //跳转登陆组件
-                ARouter.getInstance().build("/account/register").navigation();
-                break;
+//            case R.id.jump_btn:
+//                //跳转登陆组件
+//                ARouter.getInstance().build("/account/register").navigation();
+//                break;
         }
     }
 

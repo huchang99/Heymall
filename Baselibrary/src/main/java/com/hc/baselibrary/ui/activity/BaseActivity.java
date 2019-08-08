@@ -1,7 +1,10 @@
 package com.hc.baselibrary.ui.activity;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
@@ -12,7 +15,7 @@ import com.hc.baselibrary.widgets.TitleManager;
 
 import me.yokeyword.fragmentation.SupportActivity;
 
-public abstract class BaseActivity extends SupportActivity implements ViewInit {
+public abstract class BaseActivity extends FragmentActivity implements ViewInit {
 
     protected TitleManager titleManager;
     private FrameLayout content;
@@ -22,7 +25,6 @@ public abstract class BaseActivity extends SupportActivity implements ViewInit {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // setContentView(initLayout());
         setContentView(R.layout.activity_base);
         AppManager.getInstance().addActivity(this);
         titleManager = new TitleManager(this, R.id.activity_base_titlebar);
@@ -51,13 +53,19 @@ public abstract class BaseActivity extends SupportActivity implements ViewInit {
         titleManager.setTitleBackGround(resId);
     }
 
-    protected void setContent(int layoutResID) {
-        content.removeAllViews();
-        LayoutInflater.from(this).inflate(layoutResID, content);
+    protected void setContent(Object layoutResID) {
+        if (layoutResID instanceof Integer) {
+            content.removeAllViews();
+            LayoutInflater.from(this).inflate((Integer) layoutResID, content);
+        }else if(layoutResID instanceof Fragment){
+            this.getSupportFragmentManager().beginTransaction().add(R.id.activity_base_content,(Fragment)layoutResID).commit();
+        }
+
     }
 
     /**
      * 显示与隐藏状态栏
+     *
      * @param enable
      */
     protected void fullscreen(boolean enable) {

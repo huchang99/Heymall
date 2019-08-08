@@ -41,4 +41,6 @@ dependencies {
 //    }
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
     runtimeOnly project(':usercenter')
+    //banner
+    implementation 'com.youth.banner:banner:1.4.10'  //最新版本
 }
