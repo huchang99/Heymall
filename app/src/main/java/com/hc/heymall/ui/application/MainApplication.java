@@ -1,6 +1,7 @@
 package com.hc.heymall.ui.application;
 
 import android.app.Application;
+import android.support.multidex.MultiDex;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.hc.baselibrary.BuildConfig;
@@ -12,6 +13,7 @@ public class MainApplication extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+        MultiDex.install(this);
         //初始化ARouter
         if (isDebug()) {
             ARouter.openDebug();//打印日志

@@ -16,10 +16,6 @@ public class RegisterDataModel implements ResgisterContract.iRegisterData {
 
     private final static String TAG = "RegisterDataModel";
 
-//    private String UserName;
-//    private String UserPhone;
-//    private String UserPassWord;
-
     @Override
     public void registerSaveUserData(String name, String phone, String password, RegisterCallback callback) {
         Log.d(TAG, name);

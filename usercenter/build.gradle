@@ -6,23 +6,24 @@ if(isRunAlone.toBoolean()){
 
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion rootProject.ext.app.compileSdkVersion
 
     defaultConfig {
         if(isRunAlone.toBoolean()){
             applicationId "com.hc.usercenter"
         }
-        minSdkVersion 24
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
-
+        minSdkVersion rootProject.ext.app.minSdkVersion
+        targetSdkVersion rootProject.ext.app.targetSdkVersion
+        versionCode rootProject.ext.app.versionCode
+        versionName rootProject.ext.app.versionName
+        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [ AROUTER_MODULE_NAME : project.getName() ]
             }
         }
+
 
     }
 

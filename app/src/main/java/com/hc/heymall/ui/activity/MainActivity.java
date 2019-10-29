@@ -10,7 +10,6 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.hc.baselibrary.ui.activity.BaseActivity;
 import com.hc.baselibrary.ui.activity.BaseViewActivity;
 import com.hc.heymall.R;
-import com.hc.heymall.ui.fragment.bottom.MainBottomFragment;
 
 public class MainActivity extends BaseViewActivity implements View.OnClickListener {
 
@@ -27,16 +26,12 @@ public class MainActivity extends BaseViewActivity implements View.OnClickListen
         return TitleType.none;
     }
 
-    @Override
-    public int initLayout() {
-        return 0;
-    }
 
     @Override
     public void initView() {
-       // this.setContent(R.layout.activity_main);
+        // this.setContent(R.layout.activity_main);
         //jump_btn = findViewById(R.id.jump_btn);
-        this.setContent(new MainBottomFragment());
+      //  this.setContent(new MainBottomFragment());
     }
 
     @Override

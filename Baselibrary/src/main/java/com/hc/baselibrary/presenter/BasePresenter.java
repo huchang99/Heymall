@@ -3,7 +3,7 @@ package com.hc.baselibrary.presenter;
 import com.hc.baselibrary.data.BaseModel;
 import com.hc.baselibrary.presenter.view.BaseView;
 
-public abstract class BasePresenter<V extends BaseView, M extends BaseModel> {
+public abstract class  BasePresenter<V extends BaseView, M extends BaseModel> {
 
     protected V mView;
     protected M mModel;

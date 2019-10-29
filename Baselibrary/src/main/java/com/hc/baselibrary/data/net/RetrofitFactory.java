@@ -1,5 +1,7 @@
 package com.hc.baselibrary.data.net;
 
+import com.hc.baselibrary.data.Interceptor.MoreBaseUrlInterceptor;
+
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.plugins.RxJavaPlugins;
@@ -34,7 +36,7 @@ public class RetrofitFactory {
     private void initRetrofit() {
         if (RETROFIT_ClIENT == null)
             RETROFIT_ClIENT = new Retrofit.Builder()
-                    .baseUrl(BaseConstant.BASE_URL)
+                    .baseUrl("https://api-cn.faceplusplus.com/facepp/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .client(initClient())
@@ -49,6 +51,7 @@ public class RetrofitFactory {
         if (mOkHttpClient == null) {
             mOkHttpClient = new OkHttpClient.Builder()
                     .addInterceptor(initLogInterceptor())
+                    .addInterceptor(new MoreBaseUrlInterceptor())
                     .connectTimeout(10, TimeUnit.SECONDS)
                     .readTimeout(10, TimeUnit.SECONDS)
                     .build();

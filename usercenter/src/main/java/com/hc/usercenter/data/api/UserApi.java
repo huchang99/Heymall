@@ -11,6 +11,6 @@ public interface UserApi {
     @GET("login")
     Observable<BaseResp<String>> getLoginStatus();
 
-    @GET("register")
+    @GET("http://192.168.56.1:8081/register")
     Observable<BaseResp<String>> getRegisterStatus();
 }

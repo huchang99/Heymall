@@ -1,6 +1,5 @@
 package com.hc.usercenter.ui.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,10 +14,8 @@ import com.hc.usercenter.presenter.RegisterPresenter;
 
 
 @Route(path = "/account/register")
-public class RegisterActivity extends BaseMvpActivity implements ResgisterContract.iRegisterView, View.OnClickListener {
+public class RegisterActivity extends BaseMvpActivity<ResgisterContract.iRegisterPresenter> implements ResgisterContract.iRegisterView, View.OnClickListener {
 
-
-    private RegisterPresenter mPresenter;
     //控件
     private EditText edit_sign_up_name;
     private EditText edit_sign_up_phone;
@@ -29,14 +26,16 @@ public class RegisterActivity extends BaseMvpActivity implements ResgisterContra
     private String edit_sign_up_name_str;
     private String edit_sign_up_phone_str;
     private String edit_sign_up_password_str;
-    private String edit_sign_up_re_password_str;
+    protected String edit_sign_up_re_password_str;
+
+    @Override
+    public ResgisterContract.iRegisterPresenter createPresenter() {
+        return new RegisterPresenter();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPresenter = new RegisterPresenter();
-        mPresenter.attachView(this);
-        mPresenter.createModel();
 
     }
 
@@ -45,14 +44,9 @@ public class RegisterActivity extends BaseMvpActivity implements ResgisterContra
 
     }
 
-    @Override
-    public int initLayout() {
-        return R.layout.activity_register;
-    }
 
     @Override
     public void initView() {
-       // this.setContentView(R.layout.activity_register);
         this.setContent(R.layout.activity_register);
         edit_sign_up_name = findViewById(R.id.edit_sign_up_name);
         edit_sign_up_phone = findViewById(R.id.edit_sign_up_phone);

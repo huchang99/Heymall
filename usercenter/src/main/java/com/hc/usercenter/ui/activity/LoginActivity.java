@@ -16,9 +16,9 @@ import com.hc.usercenter.presenter.LoginPresenter;
 
 
 @Route(path = "/account/login")
-public class LoginActivity extends BaseMvpActivity implements View.OnClickListener, LoginContract.iLoginView {
+public class LoginActivity extends BaseMvpActivity<LoginContract.iLoginPresenter> implements View.OnClickListener, LoginContract.iLoginView {
 
-    private LoginPresenter mLoginPresenter;
+    //private LoginPresenter mLoginPresenter;
 
     private EditText edit_sign_in_phone;
     private EditText edit_sign_in_password;
@@ -28,10 +28,15 @@ public class LoginActivity extends BaseMvpActivity implements View.OnClickListen
     private String edit_sign_in_password_str;
 
     @Override
+    public LoginContract.iLoginPresenter createPresenter() {
+        return new LoginPresenter();
+    }
+
+    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mLoginPresenter = new LoginPresenter();
-        mLoginPresenter.attachView(this);
+//        mLoginPresenter = new LoginPresenter();
+//        mLoginPresenter.attachView(this);
     }
 
     @Override
@@ -39,10 +44,6 @@ public class LoginActivity extends BaseMvpActivity implements View.OnClickListen
 
     }
 
-    @Override
-    public int initLayout() {
-        return R.layout.activity_login;
-    }
 
     @Override
     public void initView() {
@@ -68,7 +69,7 @@ public class LoginActivity extends BaseMvpActivity implements View.OnClickListen
         if (v.getId() == R.id.btn_sign_in) {
             edit_sign_in_phone_str = edit_sign_in_phone.getText().toString();
             edit_sign_in_password_str = edit_sign_in_password.getText().toString();
-            mLoginPresenter.reportUserDataPwd(edit_sign_in_phone_str, edit_sign_in_password_str);
+            mPresenter.reportUserDataPwd(edit_sign_in_phone_str, edit_sign_in_password_str);
         }
 
     }

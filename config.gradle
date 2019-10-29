@@ -1,0 +1,21 @@
+/**
+ * config.gradle用于统一配置项目中各常量和依赖库
+ * 使用在项目根build.gradle上方添加 apply from: "config.gradle"
+ * 然后使用"rootProject.ext"对象调用各属性,例如 app.compileSdkVersion、daggerLibs.api、daggerLibs.values()
+ */
+ext {
+    //SDK and tools
+    app = [compileSdkVersion: 28,
+           minSdkVersion    : 19,
+           targetSdkVersion : 28,
+
+           //版本号
+           versionCode      : 1,
+           versionName      : "1.0",]
+
+//           buildToolsVersion: '28.0.3',
+
+    //*************************引用类库版本号管理**************************
+
+
+}

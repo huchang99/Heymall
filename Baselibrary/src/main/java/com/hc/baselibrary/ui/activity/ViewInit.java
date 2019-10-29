@@ -2,7 +2,7 @@ package com.hc.baselibrary.ui.activity;
 
 public interface ViewInit {
 
-    public int initLayout();
+   // public int initLayout();
 
     public void initView();
 
