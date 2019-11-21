@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.hc.baselibrary.utils.Loghc;
 import com.hc.mymodule.R;
+import com.hc.mymodule.launcher.LauncherActivity;
+import com.hc.mymodule.loadlargepic.LoadLargePic;
+import com.hc.mymodule.sideslip.SideSlipActivity;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 
@@ -15,6 +17,9 @@ import com.orhanobut.logger.Logger;
 public class FirstActivity extends Activity implements View.OnClickListener {
 
     private Button cehuaexit_btn; //侧滑退出
+    private Button launcher_btn; //启动页
+    private Button load_large_pic_btn;//高清加载巨图
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +40,14 @@ public class FirstActivity extends Activity implements View.OnClickListener {
 
     public void initView() {
         cehuaexit_btn = findViewById(R.id.cehuaexit_btn);
+        launcher_btn = findViewById(R.id.launcher_btn);
+        load_large_pic_btn = findViewById(R.id.load_large_pic_btn);
     }
 
     public void initListener() {
         cehuaexit_btn.setOnClickListener(this);
+        launcher_btn.setOnClickListener(this);
+        load_large_pic_btn.setOnClickListener(this);
     }
 
 
@@ -48,7 +57,21 @@ public class FirstActivity extends Activity implements View.OnClickListener {
             case R.id.cehuaexit_btn: {
                 Logger.d("SideSlipActivity");
                 Intent intent = new Intent();
-                intent.setClass(FirstActivity.this,SideSlipActivity.class);
+                intent.setClass(FirstActivity.this, SideSlipActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.launcher_btn: {
+                Logger.d("LauncherActivity");
+                Intent intent = new Intent();
+                intent.setClass(FirstActivity.this, LauncherActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.load_large_pic_btn:{
+                Logger.d("LauncherActivity");
+                Intent intent = new Intent();
+                intent.setClass(FirstActivity.this, LoadLargePic.class);
                 startActivity(intent);
             }
         }

@@ -8,6 +8,20 @@
         android:id="@+id/cehuaexit_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:text="侧滑退出"/>
+        android:text="侧滑退出"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/launcher_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="启动页"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/load_large_pic_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="高清加载巨图"
+        android:textSize="14sp" />
 </LinearLayout>
