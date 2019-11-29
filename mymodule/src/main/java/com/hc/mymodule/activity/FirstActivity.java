@@ -8,8 +8,9 @@ import android.widget.Button;
 
 import com.hc.mymodule.R;
 import com.hc.mymodule.launcher.LauncherActivity;
-import com.hc.mymodule.loadlargepic.LoadLargePic;
+import com.hc.mymodule.loadlargepic.LoadLargePicActivity;
 import com.hc.mymodule.sideslip.SideSlipActivity;
+import com.hc.mymodule.updatephoto.UpdatePhotoActivity;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 
@@ -19,6 +20,7 @@ public class FirstActivity extends Activity implements View.OnClickListener {
     private Button cehuaexit_btn; //侧滑退出
     private Button launcher_btn; //启动页
     private Button load_large_pic_btn;//高清加载巨图
+    private Button update_photo_btn;//更新头像
 
 
     @Override
@@ -42,12 +44,14 @@ public class FirstActivity extends Activity implements View.OnClickListener {
         cehuaexit_btn = findViewById(R.id.cehuaexit_btn);
         launcher_btn = findViewById(R.id.launcher_btn);
         load_large_pic_btn = findViewById(R.id.load_large_pic_btn);
+        update_photo_btn = findViewById(R.id.update_photo_btn);
     }
 
     public void initListener() {
         cehuaexit_btn.setOnClickListener(this);
         launcher_btn.setOnClickListener(this);
         load_large_pic_btn.setOnClickListener(this);
+        update_photo_btn.setOnClickListener(this);
     }
 
 
@@ -68,11 +72,19 @@ public class FirstActivity extends Activity implements View.OnClickListener {
                 startActivity(intent);
                 break;
             }
-            case R.id.load_large_pic_btn:{
-                Logger.d("LauncherActivity");
+            case R.id.load_large_pic_btn: {
+                Logger.d("LoadLargePicActivity");
                 Intent intent = new Intent();
-                intent.setClass(FirstActivity.this, LoadLargePic.class);
+                intent.setClass(FirstActivity.this, LoadLargePicActivity.class);
                 startActivity(intent);
+                break;
+            }
+            case R.id.update_photo_btn:{
+                Logger.d("UpdatePhotoActivity");
+                Intent intent = new Intent();
+                intent.setClass(FirstActivity.this, UpdatePhotoActivity.class);
+                startActivity(intent);
+                break;
             }
         }
     }

@@ -3,6 +3,13 @@ package com.hc.baselibrary.myapplication;
 import android.app.Application;
 
 public abstract class BaseApplication extends Application {
+
+    private static BaseApplication instance;
+
+    public static BaseApplication getInstance() {
+        return instance;
+    }
+
     /**
      * Application初始化
      */
@@ -16,5 +23,6 @@ public abstract class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        instance = this;
     }
 }

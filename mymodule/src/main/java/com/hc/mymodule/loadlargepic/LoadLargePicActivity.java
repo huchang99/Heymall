@@ -11,7 +11,7 @@ import com.hc.mymodule.loadlargepic.view.LargeImageView;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class LoadLargePic extends BaseViewActivity {
+public class LoadLargePicActivity extends BaseViewActivity {
 
     private LargeImageView mLargeImageView;
 
